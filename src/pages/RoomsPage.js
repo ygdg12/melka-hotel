@@ -1,72 +1,72 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users, Maximize, Wifi, Wind, Tv, Coffee, CheckCircle } from 'lucide-react';
+import { ArrowRight, Users, Bed, Wifi, Tv, Bath } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
-import { shuffleImgs, randomImg } from '../utils/images';
+import { shuffleImgs, UNSPLASH } from '../utils/images';
 
 const roomImgs = shuffleImgs(6);
-const pageHeroBg = randomImg();
+const pageHeroBg = UNSPLASH.rooms[0];
 
 const ROOMS = [
   {
     tag: 'Standard',
-    title: 'Standard Single Room',
-    desc: 'Thoughtfully furnished with city views, a flat-screen TV with satellite channels, air conditioning, and a private bathroom. Perfect for solo travellers.',
-    price: 59,
-    size: '28 m²',
-    guests: 1,
+    title: 'Standard Single',
+    desc: 'Pick any of our hotel rooms to experience the delightful decor, complemented with modern amenities for a comfortable stay.',
+    capacity: 'Max 1 guest',
+    bed: 'Single Bed',
+    services: ['Wifi', 'Television', 'Bathroom'],
+    price: 40,
     img: roomImgs[0],
-    features: ['City View', 'Air Conditioning', 'Free WiFi', 'Flat-screen TV', 'Safety Deposit Box', 'Room Service'],
   },
   {
     tag: 'Signature',
-    title: 'Deluxe City View Room',
-    desc: 'An elevated room experience with sweeping city panoramas, balcony access, a king-size bed, premium linens, and curated Ethiopian art.',
-    price: 89,
-    size: '35 m²',
-    guests: 2,
+    title: 'Standard Delux',
+    desc: 'Pick any of our hotel rooms to experience the delightful decor, complemented with modern amenities for a comfortable stay.',
+    capacity: 'Max 2 guests',
+    bed: 'Single Bed',
+    services: ['Wifi', 'Television', 'Bathroom'],
+    price: 50,
     img: roomImgs[1],
-    features: ['Balcony', 'City Panorama', 'King Bed', 'Free WiFi', 'Mini Fridge', 'Tea & Coffee Maker'],
   },
   {
     tag: 'Premium',
-    title: 'Junior Suite',
-    desc: 'A spacious retreat featuring a separate sitting area, fireplace, premium toiletries, and a work desk — ideal for extended stays and business travellers.',
-    price: 119,
-    size: '48 m²',
-    guests: 2,
+    title: 'Double Delux',
+    desc: 'Pick any of our hotel rooms to experience the delightful decor, complemented with modern amenities for a comfortable stay.',
+    capacity: 'Max 4 guests',
+    bed: 'Twin Bed',
+    services: ['Wifi', 'Television', 'Bathroom'],
+    price: 55,
     img: roomImgs[2],
-    features: ['Sitting Area', 'Fireplace', 'Work Desk', 'Bathtub', 'Complimentary Minibar', 'Laptop Safe'],
   },
   {
     tag: 'Premium',
-    title: 'Executive Suite',
-    desc: 'Luxuriously appointed with a private lounge, wraparound balcony with panoramic views, a rainfall shower, and complimentary access to the manager\'s daily reception.',
-    price: 149,
-    size: '65 m²',
-    guests: 2,
+    title: 'Twin Delux',
+    desc: 'Pick any of our hotel rooms to experience the delightful decor, complemented with modern amenities for a comfortable stay.',
+    capacity: 'Max 4 guests',
+    bed: 'Twin Bed',
+    services: ['Wifi', 'Television', 'Bathroom'],
+    price: 65,
     img: roomImgs[3],
-    features: ['Private Lounge', 'Wraparound Balcony', 'Rainfall Shower', 'Daily Manager Reception', 'Priority Service', 'King Bed'],
+  },
+  {
+    tag: 'Suite',
+    title: 'Triple Deluxe Suite',
+    desc: 'Pick any of our hotel rooms to experience the delightful decor, complemented with modern amenities for a comfortable stay.',
+    capacity: 'Max 6 guests',
+    bed: '3 Twin Beds',
+    services: ['Wifi', 'Television', 'Bathroom'],
+    price: 90,
+    img: roomImgs[4],
   },
   {
     tag: 'Family',
-    title: 'Family Connecting Room',
-    desc: 'Two adjoining rooms with a shared door — perfect for families. Features child-friendly amenities, extra beds, and supervised childcare services on request.',
-    price: 139,
-    size: '70 m²',
-    guests: 4,
-    img: roomImgs[4],
-    features: ['Two Adjoining Rooms', 'Extra Beds', 'Free WiFi', 'Childcare Available', 'City View', 'Mini Fridge'],
-  },
-  {
-    tag: 'Prestige',
-    title: 'Royal Penthouse Suite',
-    desc: 'The crown jewel of Melka — a full-floor penthouse with 360° Addis Ababa views, a private dining room, dedicated butler, bespoke interiors, and exclusive spa access.',
-    price: 249,
-    size: '120 m²',
-    guests: 2,
+    title: 'Family Suite',
+    desc: 'Pick any of our hotel rooms to experience the delightful decor, complemented with modern amenities for a comfortable stay.',
+    capacity: 'Max 5 guests',
+    bed: 'Queen',
+    services: ['Wifi', 'Television', 'Bathroom'],
+    price: 80,
     img: roomImgs[5],
-    features: ['360° Panoramic Views', 'Private Dining Room', 'Dedicated Butler', 'Exclusive Spa Access', 'Jacuzzi', 'Home Theater'],
   },
 ];
 
@@ -90,7 +90,7 @@ const RoomsPage = () => (
         <div className="section-eyebrow">Our Collection</div>
         <h2 className="section-title">Find Your Perfect <em>Retreat</em></h2>
         <p className="section-body">
-          88 individually furnished rooms and suites, each designed to blend authentic Ethiopian character with the finest modern comforts. Every stay includes complimentary breakfast and free WiFi.
+          Pick any of our hotel rooms to experience the delightful decor, complemented with modern amenities for a comfortable stay.
         </p>
       </RevealSection>
 
@@ -106,27 +106,20 @@ const RoomsPage = () => (
                 <h3 className="room-detail-title">{room.title}</h3>
                 <p className="room-detail-desc">{room.desc}</p>
 
-                <div style={{ display: 'flex', gap: 24, marginBottom: 20 }}>
+                <div style={{ display: 'flex', gap: 16, marginBottom: 20, flexWrap: 'wrap' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                     <Users size={14} color="var(--gold)" />
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--gray)' }}>{room.guests} Guest{room.guests > 1 ? 's' : ''}</span>
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--gray)' }}>{room.capacity}</span>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <Maximize size={14} color="var(--gold)" />
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--gray)' }}>{room.size}</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <Wifi size={14} color="var(--gold)" />
-                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--gray)' }}>Free WiFi</span>
+                    <Bed size={14} color="var(--gold)" />
+                    <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', color: 'var(--gray)' }}>{room.bed}</span>
                   </div>
                 </div>
 
                 <div className="room-detail-features">
-                  {room.features.map(f => (
-                    <div key={f} style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                      <CheckCircle size={11} color="var(--gold)" />
-                      <span className="room-feature-tag">{f}</span>
-                    </div>
+                  {room.services.map(s => (
+                    <span key={s} className="room-feature-tag">{s}</span>
                   ))}
                 </div>
 
@@ -135,7 +128,7 @@ const RoomsPage = () => (
                     ${room.price} <span>/ night</span>
                   </div>
                   <Link to="/reserve" className="btn-primary" style={{ padding: '12px 28px' }}>
-                    Reserve <ArrowRight size={13} />
+                    Book Now <ArrowRight size={13} />
                   </Link>
                 </div>
               </div>

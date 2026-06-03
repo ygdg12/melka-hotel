@@ -7,12 +7,12 @@ import { randomImg } from '../utils/images';
 const pageHeroBg = randomImg();
 
 const ROOM_TYPES = [
-  { value: 'standard-single', label: 'Standard Single Room — $59/night' },
-  { value: 'deluxe-city-view', label: 'Deluxe City View Room — $89/night' },
-  { value: 'junior-suite', label: 'Junior Suite — $119/night' },
-  { value: 'executive-suite', label: 'Executive Suite — $149/night' },
-  { value: 'family-connecting', label: 'Family Connecting Room — $139/night' },
-  { value: 'royal-penthouse', label: 'Royal Penthouse Suite — $249/night' },
+  { value: 'standard-single', label: 'Standard Single — from $40/night' },
+  { value: 'standard-delux', label: 'Standard Delux — from $50/night' },
+  { value: 'double-delux', label: 'Double Delux — from $55/night' },
+  { value: 'twin-delux', label: 'Twin Delux — from $65/night' },
+  { value: 'triple-deluxe-suite', label: 'Triple Deluxe Suite — from $90/night' },
+  { value: 'family-suite', label: 'Family Suite — from $80/night' },
 ];
 
 const INITIAL_FORM = {

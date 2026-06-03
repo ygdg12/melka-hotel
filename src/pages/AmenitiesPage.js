@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Utensils, Waves, Dumbbell, Wind, Coffee, ConciergeBell, Wifi, Car, Users, ShieldCheck, Globe, Sparkles } from 'lucide-react';
+import { ArrowRight, Utensils, Waves, Dumbbell, Wind, Coffee, ConciergeBell, Wifi, Car, Users, Sparkles, Bus, Shirt } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
-import { shuffleImgs, randomImg } from '../utils/images';
+import { shuffleImgs, UNSPLASH } from '../utils/images';
 
 const amenityImgs = shuffleImgs(6);
-const pageHeroBg = randomImg();
+const pageHeroBg = UNSPLASH.spa;
 
 const AMENITIES = [
   {
@@ -50,8 +50,8 @@ const EXTRAS = [
   { icon: ConciergeBell, title: '24h Concierge' },
   { icon: Wifi, title: 'Free High-Speed WiFi' },
   { icon: Car, title: 'Free Private Parking' },
-  { icon: ShieldCheck, title: 'Safety Deposit Boxes' },
-  { icon: Globe, title: 'Currency Exchange' },
+  { icon: Bus, title: 'Airport Shuttle' },
+  { icon: Shirt, title: 'Laundry Service' },
   { icon: Sparkles, title: 'Daily Housekeeping' },
 ];
 

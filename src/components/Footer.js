@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Facebook, Instagram, Twitter } from 'lucide-react';
+import { MapPin, Phone, Mail, Facebook, Instagram } from 'lucide-react';
 
 const Footer = () => (
   <footer className="footer">
@@ -63,11 +63,15 @@ const Footer = () => (
         {[
           { Icon: Facebook, label: 'Facebook' },
           { Icon: Instagram, label: 'Instagram' },
-          { Icon: Twitter, label: 'Twitter' },
+          { label: 'TikTok' },
         ].map(({ Icon, label }) => (
-          <a key={label} href="#" aria-label={label} className="footer-social-btn">
-            <Icon size={14} />
-          </a>
+          Icon
+            ? <a key={label} href="#" aria-label={label} className="footer-social-btn"><Icon size={14} /></a>
+            : <a key={label} href="#" aria-label={label} className="footer-social-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                </svg>
+              </a>
         ))}
       </div>
     </div>

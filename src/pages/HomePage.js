@@ -10,21 +10,24 @@ import { LOCAL, UNSPLASH, shuffleImgs, randomImg } from '../utils/images';
 const roomImages = shuffleImgs(3);
 const ROOMS = [
   {
-    tag: 'Signature',
-    title: 'Deluxe City View',
-    price: '$89',
+    tag: 'Standard',
+    title: 'Standard Single',
+    price: '$40',
+    desc: 'Max 1 guest · Single Bed',
     img: roomImages[0],
   },
   {
-    tag: 'Premium',
-    title: 'Executive Suite',
-    price: '$149',
+    tag: 'Signature',
+    title: 'Standard Delux',
+    price: '$50',
+    desc: 'Max 2 guests · Single Bed',
     img: roomImages[1],
   },
   {
-    tag: 'Prestige',
-    title: 'Royal Penthouse',
-    price: '$249',
+    tag: 'Premium',
+    title: 'Double Delux',
+    price: '$55',
+    desc: 'Max 4 guests · Twin Bed',
     img: roomImages[2],
   },
 ];
@@ -88,7 +91,7 @@ const HomePage = () => {
     <main>
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg" style={{ backgroundImage: `linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.2) 40%, rgba(10,10,10,0.7) 100%), url(${LOCAL})` }} />
+        <div className="hero-bg" style={{ backgroundImage: `linear-gradient(to bottom, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.4) 30%, rgba(10,10,10,0.6) 70%, rgba(10,10,10,0.85) 100%), url(${LOCAL})` }} />
         <div className="hero-content">
           <div className="hero-eyebrow">4-Star Luxury · Addis Ababa, Ethiopia</div>
           <h1 className="hero-title">
@@ -103,10 +106,6 @@ const HomePage = () => {
               Explore Rooms
             </Link>
           </div>
-        </div>
-        <div className="hero-scroll">
-          <span>Scroll</span>
-          <div className="hero-scroll-line" />
         </div>
       </section>
 
@@ -214,6 +213,7 @@ const HomePage = () => {
                 <div className="room-card-overlay">
                   <div className="room-card-tag">{room.tag}</div>
                   <div className="room-card-title">{room.title}</div>
+                  <div style={{ fontFamily: 'var(--font-body)', fontSize: '0.65rem', color: 'var(--gray)', marginBottom: 12 }}>{room.desc}</div>
                   <div className="room-card-price">
                     <span className="room-card-price-num">{room.price}</span>
                     <span className="room-card-price-per">/ night</span>

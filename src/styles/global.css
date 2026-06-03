@@ -1406,6 +1406,40 @@ textarea.form-control {
   border-radius: 4px;
 }
 
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-family: var(--font-body);
+}
+
+.pricing-table th {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--black-border);
+  text-align: left;
+  font-weight: 400;
+}
+
+.pricing-table td {
+  font-size: 0.78rem;
+  color: var(--cream);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--black-border);
+}
+
+.pricing-table tr:last-child td {
+  border-bottom: none;
+}
+
+.pricing-table td:last-child,
+.pricing-table th:last-child {
+  text-align: right;
+}
+
 .room-detail-footer {
   display: flex;
   align-items: center;
@@ -1480,6 +1514,7 @@ textarea.form-control {
   .rooms-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: clamp(2.4rem, 10vw, 3.2rem); }
   .hero-subtitle { font-size: 0.65rem; margin-bottom: 32px; }
+  .navbar-reserve-btn { display: none !important; }
   .hero-actions { flex-direction: column; gap: 14px; }
   .btn-primary, .btn-secondary { padding: 16px 32px; width: 100%; justify-content: center; }
   .amenities-grid { grid-template-columns: 1fr; }
