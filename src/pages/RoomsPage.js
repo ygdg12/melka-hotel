@@ -2,9 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Bed, Wifi, Tv, Bath } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
-import { shuffleImgs, UNSPLASH } from '../utils/images';
+import { UNSPLASH } from '../utils/images';
 
-const roomImgs = shuffleImgs(6);
 const pageHeroBg = UNSPLASH.rooms[0];
 
 const ROOMS = [
@@ -16,7 +15,7 @@ const ROOMS = [
     bed: 'Single Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
     price: 40,
-    img: roomImgs[0],
+    img: UNSPLASH.rooms[0],
   },
   {
     tag: 'Signature',
@@ -26,7 +25,7 @@ const ROOMS = [
     bed: 'Single Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
     price: 50,
-    img: roomImgs[1],
+    img: UNSPLASH.rooms[1],
   },
   {
     tag: 'Premium',
@@ -36,7 +35,7 @@ const ROOMS = [
     bed: 'Twin Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
     price: 55,
-    img: roomImgs[2],
+    img: UNSPLASH.rooms[2],
   },
   {
     tag: 'Premium',
@@ -46,7 +45,7 @@ const ROOMS = [
     bed: 'Twin Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
     price: 65,
-    img: roomImgs[3],
+    img: UNSPLASH.rooms[3],
   },
   {
     tag: 'Suite',
@@ -56,7 +55,7 @@ const ROOMS = [
     bed: '3 Twin Beds',
     services: ['Wifi', 'Television', 'Bathroom'],
     price: 90,
-    img: roomImgs[4],
+    img: UNSPLASH.rooms[4],
   },
   {
     tag: 'Family',
@@ -66,7 +65,7 @@ const ROOMS = [
     bed: 'Queen',
     services: ['Wifi', 'Television', 'Bathroom'],
     price: 80,
-    img: roomImgs[5],
+    img: UNSPLASH.rooms[5],
   },
 ];
 

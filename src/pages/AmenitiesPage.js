@@ -4,7 +4,7 @@ import { ArrowRight, Utensils, Waves, Dumbbell, Wind, Coffee, ConciergeBell, Wif
 import useReveal from '../hooks/useReveal';
 import { shuffleImgs, UNSPLASH } from '../utils/images';
 
-const amenityImgs = shuffleImgs(6);
+const amenityImgs = shuffleImgs(5);
 const pageHeroBg = UNSPLASH.spa;
 
 const AMENITIES = [
@@ -30,19 +30,19 @@ const AMENITIES = [
     icon: Dumbbell,
     title: 'Fitness Center',
     desc: 'Whether you\'re a morning person or a night owl, our state-of-the-art gym is open 24 hours. Featuring the latest cardio and strength equipment, with certified personal trainers available on request.',
-    img: amenityImgs[3],
+    img: UNSPLASH.gym,
   },
   {
     icon: Coffee,
     title: 'Ethiopian Coffee Lounge',
     desc: 'Experience the world\'s finest coffee — at its source. Our lounge offers a daily Ethiopian coffee ceremony, specialty single-origin brews, fresh pastries, and a curated selection of teas in an intimate, warmly lit setting.',
-    img: amenityImgs[4],
+    img: amenityImgs[3],
   },
   {
     icon: Users,
     title: 'Conference & Event Rooms',
     desc: 'We have different types of Syndicate Conference Rooms with full audio-visual accessories and closed halls. Perfect for corporate meetings, seminars, product launches, and private events of all sizes.',
-    img: amenityImgs[5],
+    img: amenityImgs[4],
   },
 ];
 

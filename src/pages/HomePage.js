@@ -7,7 +7,7 @@ import {
 import useReveal from '../hooks/useReveal';
 import { LOCAL, UNSPLASH, shuffleImgs, randomImg } from '../utils/images';
 
-const roomImages = shuffleImgs(3);
+const roomImages = [UNSPLASH.rooms[0], UNSPLASH.rooms[1], UNSPLASH.rooms[2]];
 const ROOMS = [
   {
     tag: 'Standard',
@@ -61,15 +61,14 @@ const TESTIMONIALS = [
   },
 ];
 
-const aboutImgs = shuffleImgs(2);
-const galleryImgs = shuffleImgs(5);
+const aboutImgs = [UNSPLASH.rooms[3], UNSPLASH.rooms[4]];
 const ctaImg = randomImg();
 const GALLERY = [
-  { src: galleryImgs[0], alt: 'Hotel exterior' },
-  { src: galleryImgs[1], alt: 'Deluxe room' },
-  { src: galleryImgs[2], alt: 'Fine dining' },
-  { src: galleryImgs[3], alt: 'Spa' },
-  { src: galleryImgs[4], alt: 'Coffee lounge' },
+  { src: UNSPLASH.gallery[0], alt: 'Hotel exterior' },
+  { src: UNSPLASH.gallery[1], alt: 'Deluxe room' },
+  { src: UNSPLASH.gallery[2], alt: 'Fine dining' },
+  { src: UNSPLASH.gallery[3], alt: 'Fitness center' },
+  { src: UNSPLASH.gallery[4], alt: 'Premium room' },
 ];
 
 function RevealSection({ children, className = '', style = {} }) {
@@ -152,12 +151,12 @@ const HomePage = () => {
             <div className="about-image-stack">
               <img
                 src={aboutImgs[0]}
-                alt="Hotel exterior"
+                alt="Deluxe Suite"
                 className="about-img-main"
               />
               <img
                 src={aboutImgs[1]}
-                alt="Fine dining"
+                alt="Premium Room"
                 className="about-img-secondary"
               />
               <div className="about-badge">
@@ -176,11 +175,10 @@ const HomePage = () => {
               Nestled in the vibrant heart of Arada, Addis Ababa, Melka International Hotel is a four-star sanctuary where authentic Ethiopian warmth meets world-class luxury. Just a 4-minute walk from the iconic Derg Monument and moments from the National Palace, we offer an unrivalled address for discerning travellers.
             </p>
             <p className="section-body" style={{ marginTop: 20 }}>
-              Our 88 individually furnished rooms and suites, our award-winning restaurant, rooftop bar, full-service spa, and dedicated team combine to create an experience that is as memorable as the city itself.
+              Our individually furnished rooms and suites, our award-winning restaurant, rooftop bar, full-service spa, and dedicated team combine to create an experience that is as memorable as the city itself.
             </p>
             <div className="about-stats">
               {[
-                { num: '88', label: 'Rooms & Suites' },
                 { num: '4★', label: 'Star Rating' },
                 { num: '24h', label: 'Concierge' },
               ].map(({ num, label }) => (
