@@ -1604,6 +1604,6 @@ textarea.form-control {
   .amenity-detail-body { padding: 0 !important; }
   .amenities-extras-grid { grid-template-columns: 1fr !important; }
   .cta-section { margin: 0 16px 60px !important; min-height: 320px !important; }
-  .cta-bg { background: linear-gradient(to bottom, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0.6) 100%), var(--cta-img, url(https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1400&q=80)) center/cover !important; }
+  .cta-bg { background: linear-gradient(to bottom, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0.6) 100%), var(--cta-img) center/cover !important; }
   .cta-content { padding: 40px 24px !important; }
 }

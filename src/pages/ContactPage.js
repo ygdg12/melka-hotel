@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, ArrowRight, Loader } from 'lucide-react';
 import toast from 'react-hot-toast';
 import useReveal from '../hooks/useReveal';
-import { randomImg } from '../utils/images';
+import { PHOTOS } from '../utils/images';
 
-const pageHeroBg = randomImg();
+const pageHeroBg = PHOTOS.contact;
 
 function RevealSection({ children, className = '' }) {
   const ref = useReveal();

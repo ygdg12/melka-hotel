@@ -5,30 +5,29 @@ import {
   Coffee, ConciergeBell, Waves, Wind
 } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
-import { LOCAL, UNSPLASH, shuffleImgs, randomImg } from '../utils/images';
+import { PHOTOS } from '../utils/images';
 
-const roomImages = [UNSPLASH.rooms[0], UNSPLASH.rooms[1], UNSPLASH.rooms[2]];
 const ROOMS = [
   {
     tag: 'Standard',
     title: 'Standard Single',
     price: '$40',
     desc: 'Max 1 guest · Single Bed',
-    img: roomImages[0],
+    img: PHOTOS.rooms[0],
   },
   {
     tag: 'Signature',
     title: 'Standard Delux',
     price: '$50',
     desc: 'Max 2 guests · Single Bed',
-    img: roomImages[1],
+    img: PHOTOS.rooms[1],
   },
   {
     tag: 'Premium',
     title: 'Double Delux',
     price: '$55',
     desc: 'Max 4 guests · Twin Bed',
-    img: roomImages[2],
+    img: PHOTOS.rooms[2],
   },
 ];
 
@@ -61,14 +60,14 @@ const TESTIMONIALS = [
   },
 ];
 
-const aboutImgs = [UNSPLASH.rooms[3], UNSPLASH.rooms[4]];
-const ctaImg = randomImg();
+const aboutImgs = [PHOTOS.rooms[3], PHOTOS.rooms[4]];
+const ctaImg = PHOTOS.cta;
 const GALLERY = [
-  { src: UNSPLASH.gallery[0], alt: 'Hotel exterior' },
-  { src: UNSPLASH.gallery[1], alt: 'Deluxe room' },
-  { src: UNSPLASH.gallery[2], alt: 'Fine dining' },
-  { src: UNSPLASH.gallery[3], alt: 'Fitness center' },
-  { src: UNSPLASH.gallery[4], alt: 'Premium room' },
+  { src: PHOTOS.gallery[0], alt: 'Hotel exterior' },
+  { src: PHOTOS.gallery[1], alt: 'Deluxe room' },
+  { src: PHOTOS.gallery[2], alt: 'Fine dining' },
+  { src: PHOTOS.gallery[3], alt: 'Fitness center' },
+  { src: PHOTOS.gallery[4], alt: 'Premium room' },
 ];
 
 function RevealSection({ children, className = '', style = {} }) {
@@ -90,7 +89,7 @@ const HomePage = () => {
     <main>
       {/* HERO */}
       <section className="hero">
-        <div className="hero-bg" style={{ backgroundImage: `linear-gradient(to bottom, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.4) 30%, rgba(10,10,10,0.6) 70%, rgba(10,10,10,0.85) 100%), url(${LOCAL})` }} />
+        <div className="hero-bg" style={{ backgroundImage: `linear-gradient(to bottom, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.4) 30%, rgba(10,10,10,0.6) 70%, rgba(10,10,10,0.85) 100%), url(${PHOTOS.hero})` }} />
         <div className="hero-content">
           <div className="hero-eyebrow">4-Star Luxury · Addis Ababa, Ethiopia</div>
           <h1 className="hero-title">
@@ -306,7 +305,8 @@ const HomePage = () => {
       <section className="cta-section" style={{ position: 'relative', overflow: 'hidden', margin: '0 60px 120px', minHeight: 400, display: 'flex', alignItems: 'center' }}>
         <div className="cta-bg" style={{
           position: 'absolute', inset: 0,
-          background: `linear-gradient(to right, rgba(10,10,10,0.95) 40%, rgba(10,10,10,0.5) 100%), url(${ctaImg}) center/cover`
+          '--cta-img': `url(${ctaImg})`,
+          background: `linear-gradient(to right, rgba(10,10,10,0.95) 40%, rgba(10,10,10,0.5) 100%), var(--cta-img) center/cover`
         }} />
         <div className="cta-content" style={{ position: 'relative', zIndex: 2, padding: '80px 80px' }}>
           <RevealSection>

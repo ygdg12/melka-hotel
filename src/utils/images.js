@@ -1,48 +1,86 @@
-export const LOCAL = '/Capture23.PNG';
+const pub = (file) => `/${file}`;
 
-export const UNSPLASH = {
-  hero: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=1920&q=80',
+export const ALL_LOCAL = [
+  pub('Capture23.PNG'),
+  pub('DSC_9768.JPG'),
+  pub('DSC_9785.JPG'),
+  pub('DSC_9833.JPG'),
+  pub('DSC_9846.JPG'),
+  pub('DSC_9851.JPG'),
+  pub('DSC_9855.JPG'),
+  pub('DSC_9859.JPG'),
+  pub('DSC_9861.JPG'),
+  pub('DSC_9873.JPG'),
+  pub('DSC_9881.JPG'),
+  pub('DSC_9889.JPG'),
+  pub('DSC_9897.JPG'),
+  pub('DSC_9908.JPG'),
+  pub('DSC_9913.JPG'),
+  pub('DSC_9953.JPG'),
+  pub('DSC_9955.JPG'),
+  pub('DSC_9959.JPG'),
+];
+
+export const ROOM_IMAGES = {
+  standardSingle: pub('DSC_9881.JPG'),
+  standardDelux: pub('DSC_9889.JPG'),
+  doubleDelux: pub('DSC_9846.JPG'),
+  twinDelux: pub('DSC_9873.JPG'),
+  tripleDeluxeSuite: pub('DSC_9859.JPG'),
+  familySuite: pub('DSC_9855.JPG'),
+};
+
+export const AMENITY_IMAGES = {
+  fineDining: pub('DSC_9833.JPG'),
+  rooftopBar: pub('DSC_9768.JPG'),
+  spa: pub('Capture23.PNG'),
+  fitness: pub('DSC_9953.JPG'),
+  coffeeLounge: pub('DSC_9913.JPG'),
+  conference: pub('DSC_9897.JPG'),
+};
+
+export const PHOTOS = {
+  hero: pub('DSC_9851.JPG'),
+  cta: pub('DSC_9785.JPG'),
   rooms: [
-    'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
-    'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80',
-    'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80',
-    'https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=900&q=80',
-    'https://images.unsplash.com/photo-1586611292717-f828b167408c?w=900&q=80',
-    'https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=900&q=80',
+    ROOM_IMAGES.standardSingle,
+    ROOM_IMAGES.standardDelux,
+    ROOM_IMAGES.doubleDelux,
+    ROOM_IMAGES.twinDelux,
+    ROOM_IMAGES.tripleDeluxeSuite,
+    ROOM_IMAGES.familySuite,
   ],
-  dining: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80',
-  exterior: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80',
-  spa: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1920&q=80',
-  gym: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80',
-  contact: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=1920&q=80',
-  cta: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1400&q=80',
+  dining: AMENITY_IMAGES.fineDining,
+  exterior: pub('DSC_9768.JPG'),
+  spa: AMENITY_IMAGES.spa,
+  gym: AMENITY_IMAGES.fitness,
+  contact: pub('DSC_9768.JPG'),
   gallery: [
-    'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=900&q=80',
-    'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80',
-    'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80',
-    'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&q=80',
-    'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&q=80',
+    pub('DSC_9768.JPG'),
+    pub('DSC_9889.JPG'),
+    pub('DSC_9833.JPG'),
+    pub('DSC_9859.JPG'),
+    pub('DSC_9855.JPG'),
   ],
   amenities: [
-    'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80',
-    'https://images.unsplash.com/photo-1560624052-449f5ddf0c31?w=900&q=80',
-    'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=900&q=80',
-    'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80',
-    'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=900&q=80',
-    'https://images.unsplash.com/photo-1511578314322-379afb476865?w=900&q=80',
+    AMENITY_IMAGES.fineDining,
+    AMENITY_IMAGES.rooftopBar,
+    AMENITY_IMAGES.spa,
+    AMENITY_IMAGES.fitness,
+    AMENITY_IMAGES.coffeeLounge,
+    AMENITY_IMAGES.conference,
   ],
 };
 
-const ALL = [LOCAL, ...Object.values(UNSPLASH).flatMap(v => Array.isArray(v) ? v : [v])];
+const ALL = [...ALL_LOCAL];
 
 export function randomImg() {
   return ALL[Math.floor(Math.random() * ALL.length)];
 }
 
 export function shuffleImgs(count, exclude) {
-  const pool = exclude ? ALL.filter(i => i !== exclude) : [...ALL];
-  const shuffled = pool.sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, count);
+  const pool = exclude ? ALL.filter((i) => i !== exclude) : [...ALL];
+  return [...pool].sort(() => Math.random() - 0.5).slice(0, count);
 }
 
-export default { LOCAL, UNSPLASH, ALL, randomImg, shuffleImgs };
+export default { ROOM_IMAGES, AMENITY_IMAGES, PHOTOS, ALL, randomImg, shuffleImgs };

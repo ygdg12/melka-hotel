@@ -2,47 +2,46 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Utensils, Waves, Dumbbell, Wind, Coffee, ConciergeBell, Wifi, Car, Users, Sparkles, Bus, Shirt } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
-import { shuffleImgs, UNSPLASH } from '../utils/images';
+import { AMENITY_IMAGES } from '../utils/images';
 
-const amenityImgs = shuffleImgs(5);
-const pageHeroBg = UNSPLASH.spa;
+const pageHeroBg = AMENITY_IMAGES.fineDining;
 
 const AMENITIES = [
   {
     icon: Utensils,
     title: 'Fine Dining Restaurant',
     desc: 'Our signature restaurant offers an unmatched dining experience utilizing the freshest locally-sourced ingredients, masterfully prepared by our professional chefs. With white tablecloths, candlelight, and impeccable service — every meal becomes an occasion.',
-    img: amenityImgs[0],
+    img: AMENITY_IMAGES.fineDining,
   },
   {
     icon: Wind,
     title: 'Rooftop Bar & Terrace',
     desc: 'Perched atop the hotel, our open-air rooftop terrace offers sweeping panoramic views of Addis Ababa. Enjoy signature cocktails, fine Ethiopian tej (honey wine), and light bites as the city lights come alive at sunset.',
-    img: amenityImgs[1],
+    img: AMENITY_IMAGES.rooftopBar,
   },
   {
     icon: Waves,
     title: 'Spa & Wellness Centre',
     desc: 'An oasis of tranquility — our full-service spa offers body wraps, revitalizing facials, deep-tissue massages, and traditional Ethiopian steam treatments. Surrender to total relaxation in our serene, elegantly appointed treatment rooms.',
-    img: amenityImgs[2],
+    img: AMENITY_IMAGES.spa,
   },
   {
     icon: Dumbbell,
     title: 'Fitness Center',
     desc: 'Whether you\'re a morning person or a night owl, our state-of-the-art gym is open 24 hours. Featuring the latest cardio and strength equipment, with certified personal trainers available on request.',
-    img: UNSPLASH.gym,
+    img: AMENITY_IMAGES.fitness,
   },
   {
     icon: Coffee,
     title: 'Ethiopian Coffee Lounge',
     desc: 'Experience the world\'s finest coffee — at its source. Our lounge offers a daily Ethiopian coffee ceremony, specialty single-origin brews, fresh pastries, and a curated selection of teas in an intimate, warmly lit setting.',
-    img: amenityImgs[3],
+    img: AMENITY_IMAGES.coffeeLounge,
   },
   {
     icon: Users,
     title: 'Conference & Event Rooms',
     desc: 'We have different types of Syndicate Conference Rooms with full audio-visual accessories and closed halls. Perfect for corporate meetings, seminars, product launches, and private events of all sizes.',
-    img: amenityImgs[4],
+    img: AMENITY_IMAGES.conference,
   },
 ];
 
