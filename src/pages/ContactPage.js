@@ -3,6 +3,7 @@ import { MapPin, Phone, Mail, Clock, ArrowRight, Loader } from 'lucide-react';
 import toast from 'react-hot-toast';
 import useReveal from '../hooks/useReveal';
 import { PHOTOS } from '../utils/images';
+import { sendEmail, buildContactEmail } from '../utils/sendEmail';
 
 const pageHeroBg = PHOTOS.contact;
 
@@ -24,11 +25,21 @@ const ContactPage = () => {
       return;
     }
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await sendEmail({
+        subject: form.subject
+          ? `[Contact] ${form.subject} — from ${form.name}`
+          : `[Contact] New message from ${form.name}`,
+        html: buildContactEmail(form),
+      });
       toast.success('Message sent! We will get back to you shortly.');
       setForm({ name: '', email: '', subject: '', message: '' });
-    }, 1500);
+    } catch (err) {
+      console.error('Resend error:', err);
+      toast.error('Failed to send your message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

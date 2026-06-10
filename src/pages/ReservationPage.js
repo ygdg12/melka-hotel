@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, CheckCircle, Loader } from 'lucide-react';
 import toast from 'react-hot-toast';
 import useReveal from '../hooks/useReveal';
+import { sendEmail, buildReservationEmail } from '../utils/sendEmail';
 
 const ROOM_TYPES = [
   { value: 'standard-single', label: 'Standard Single — from $40/night' },
@@ -50,11 +51,21 @@ const ReservationPage = () => {
       return;
     }
     setLoading(true);
-    setTimeout(() => {
+    try {
+      // Find the human-readable label for the room type
+      const roomLabel = ROOM_TYPES.find(r => r.value === form.roomType)?.label || form.roomType;
+      await sendEmail({
+        subject: `[Reservation] ${form.fullName} — ${roomLabel}`,
+        html: buildReservationEmail({ ...form, roomType: roomLabel }),
+      });
       setSubmitted(true);
-      setLoading(false);
       toast.success('Reservation submitted! We will confirm within 24 hours.');
-    }, 1000);
+    } catch (err) {
+      console.error('Resend error:', err);
+      toast.error('Failed to submit reservation. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

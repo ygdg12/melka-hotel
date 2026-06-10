@@ -67,7 +67,10 @@ const GALLERY = [
   { src: PHOTOS.gallery[1], alt: 'Deluxe room' },
   { src: PHOTOS.gallery[2], alt: 'Fine dining' },
   { src: PHOTOS.gallery[3], alt: 'Fitness center' },
-  { src: PHOTOS.gallery[4], alt: 'Premium room' },
+  { src: PHOTOS.gallery[4], alt: 'Gym equipment' },
+  { src: PHOTOS.gallery[5], alt: 'Cardio area' },
+  { src: PHOTOS.gallery[6], alt: 'Lounge area' },
+  { src: PHOTOS.gallery[7], alt: 'Coffee lounge' },
 ];
 
 function RevealSection({ children, className = '', style = {} }) {

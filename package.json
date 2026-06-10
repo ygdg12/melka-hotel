@@ -3,30 +3,46 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "react-router-dom": "^6.21.0",
-    "framer-motion": "^10.18.0",
-    "lucide-react": "^0.303.0",
-    "resend": "^2.1.0",
     "@emailjs/browser": "^4.3.3",
+    "concurrently": "^10.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "framer-motion": "^10.18.0",
+    "gsap": "^3.12.4",
+    "lucide-react": "^0.303.0",
+    "react": "^18.2.0",
     "react-datepicker": "^4.25.0",
-    "react-intersection-observer": "^9.5.3",
+    "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
-    "gsap": "^3.12.4"
+    "react-intersection-observer": "^9.5.3",
+    "react-router-dom": "^6.21.0",
+    "react-scripts": "5.0.1",
+    "resend": "^2.1.0"
   },
+  "proxy": "http://localhost:3001",
   "scripts": {
     "start": "react-scripts start",
+    "server": "node server.js",
+    "dev": "concurrently -k -n React,Server -c cyan,yellow \"npm start\" \"npm run server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": ["react-app"]
+    "extends": [
+      "react-app"
+    ]
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

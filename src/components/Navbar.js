@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
+const LOGO = '/ChatGPT_Image_Jun_10__2026__10_50_06_AM-removebg-preview.png';
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -19,7 +21,11 @@ const Navbar = () => {
     <>
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
         <Link to="/" className="navbar-logo">
-          <div className="navbar-logo-emblem">M</div>
+          <img
+            src={LOGO}
+            alt="Melka International Hotel Logo"
+            style={{ height: '54px', width: 'auto', display: 'block', flexShrink: 0 }}
+          />
           <div className="navbar-logo-text">
             <span className="navbar-logo-name">Melka International</span>
             <span className="navbar-logo-sub">Addis Ababa · Ethiopia</span>
@@ -51,6 +57,7 @@ const Navbar = () => {
           zIndex: 999, display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center', gap: 36
         }}>
+          <img src={LOGO} alt="Logo" style={{ height: '72px', width: 'auto', marginBottom: 8 }} />
           {['/', '/rooms', '/amenities', '/contact', '/reserve'].map((path, i) => {
             const labels = ['Home', 'Rooms', 'Amenities', 'Contact', 'Reserve Now'];
             return (

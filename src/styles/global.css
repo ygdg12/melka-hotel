@@ -926,19 +926,18 @@ body {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 300px 300px;
-  gap: 3px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 280px 280px 280px;
+  gap: 6px;
+  padding: 0 60px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .gallery-item {
   overflow: hidden;
   position: relative;
-}
-
-.gallery-item:nth-child(1) {
-  grid-column: span 2;
-  grid-row: span 2;
+  border-radius: 10px;
 }
 
 .gallery-item:nth-child(4) {
@@ -949,22 +948,24 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s ease;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  filter: brightness(1.06) saturate(1.1);
 }
 
 .gallery-item-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(10, 10, 10, 0);
-  transition: background 0.3s ease;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.55) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .gallery-item:hover .gallery-item-overlay {
-  background: rgba(212, 175, 114, 0.1);
+  opacity: 1;
 }
 
 /* RESERVATION FORM */
@@ -1495,8 +1496,7 @@ textarea.form-control {
   .quick-book { padding: 0 30px; }
   .quick-book-inner { flex-direction: column; }
   .quick-book-btn { padding: 20px 40px; justify-content: center; }
-  .gallery-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; }
-  .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); grid-template-rows: auto; padding: 0 30px; }
   .gallery-item:nth-child(4) { grid-column: span 1; }
   .contact-grid { grid-template-columns: 1fr; }
   .rooms-page-grid { grid-template-columns: 1fr; }
@@ -1523,7 +1523,9 @@ textarea.form-control {
   .form-group.full { grid-column: span 1; }
   .form-submit { grid-column: span 1; }
   .section { padding: 60px 20px; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); padding: 0 20px; }
+  .gallery-item:nth-child(4) { grid-column: span 1; }
+  .gallery-item { border-radius: 8px; }
   .about-image-stack { height: 400px; }
   .amenity-card { padding: 36px 24px; }
   .room-card-overlay { padding: 24px; }
@@ -1580,8 +1582,9 @@ textarea.form-control {
   .testimonial-text { font-size: 1rem; }
   .page-hero { padding: 32px 16px; height: 40vh; }
   .page-hero-title { font-size: clamp(1.8rem, 8vw, 2.5rem); }
-  .gallery-grid { grid-template-columns: 1fr; gap: 2px; }
+  .gallery-grid { grid-template-columns: 1fr; gap: 2px; padding: 0 16px; }
   .gallery-grid { grid-template-rows: auto; }
+  .gallery-item { border-radius: 6px; }
   .footer-grid { gap: 32px; }
   .footer-logo-emblem { width: 42px; height: 42px; font-size: 1.3rem; }
   .contact-section { padding: 60px 16px; }

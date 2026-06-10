@@ -60,7 +60,10 @@ export const PHOTOS = {
     pub('DSC_9889.JPG'),
     pub('DSC_9833.JPG'),
     pub('DSC_9859.JPG'),
-    pub('DSC_9855.JPG'),
+    pub('DSC_9953.JPG'),
+    pub('DSC_9908.JPG'),
+    pub('DSC_9861.JPG'),
+    pub('DSC_9913.JPG'),
   ],
   amenities: [
     AMENITY_IMAGES.fineDining,
