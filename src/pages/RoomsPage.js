@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users, Bed, Wifi, Tv, Bath } from 'lucide-react';
+import { ArrowRight, Users, Bed } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
 import { PHOTOS } from '../utils/images';
 

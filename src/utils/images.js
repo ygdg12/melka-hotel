@@ -86,4 +86,5 @@ export function shuffleImgs(count, exclude) {
   return [...pool].sort(() => Math.random() - 0.5).slice(0, count);
 }
 
-export default { ROOM_IMAGES, AMENITY_IMAGES, PHOTOS, ALL, randomImg, shuffleImgs };
+const IMAGES = { ROOM_IMAGES, AMENITY_IMAGES, PHOTOS, ALL, randomImg, shuffleImgs };
+export default IMAGES;

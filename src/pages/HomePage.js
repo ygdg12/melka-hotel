@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, Star, Car, Utensils, Dumbbell,
@@ -83,8 +83,6 @@ function RevealSection({ children, className = '', style = {} }) {
 }
 
 const HomePage = () => {
-  const checkInRef = useRef();
-
   const today = new Date().toISOString().split('T')[0];
   const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
 

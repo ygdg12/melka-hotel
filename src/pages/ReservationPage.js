@@ -23,11 +23,6 @@ const INITIAL_FORM = {
   guests: '2',
 };
 
-function RevealSection({ children, className = '' }) {
-  const ref = useReveal();
-  return <div ref={ref} className={`reveal ${className}`}>{children}</div>;
-}
-
 const ReservationPage = () => {
   const [form, setForm] = useState(INITIAL_FORM);
   const [loading, setLoading] = useState(false);
