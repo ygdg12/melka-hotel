@@ -14,7 +14,7 @@ const ROOMS = [
     capacity: 'Max 1 guest',
     bed: 'Single Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 40,
+    price: 4999,
     img: PHOTOS.rooms[0],
   },
   {
@@ -24,7 +24,7 @@ const ROOMS = [
     capacity: 'Max 2 guests',
     bed: 'Single Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 50,
+    price: 5999,
     img: PHOTOS.rooms[1],
   },
   {
@@ -34,7 +34,7 @@ const ROOMS = [
     capacity: 'Max 4 guests',
     bed: 'Twin Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 55,
+    price: 6999,
     img: PHOTOS.rooms[2],
   },
   {
@@ -44,7 +44,7 @@ const ROOMS = [
     capacity: 'Max 4 guests',
     bed: 'Twin Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 65,
+    price: 8999,
     img: PHOTOS.rooms[3],
   },
   {
@@ -54,7 +54,7 @@ const ROOMS = [
     capacity: 'Max 6 guests',
     bed: '3 Twin Beds',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 90,
+    price: 11999,
     img: PHOTOS.rooms[4],
   },
   {
@@ -64,7 +64,7 @@ const ROOMS = [
     capacity: 'Max 5 guests',
     bed: 'Queen',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 80,
+    price: 10999,
     img: PHOTOS.rooms[5],
   },
 ];
@@ -124,7 +124,7 @@ const RoomsPage = () => (
 
                 <div className="room-detail-footer">
                   <div className="room-detail-price">
-                    ${room.price} <span>/ night</span>
+                    {room.price.toLocaleString()} ETB <span>/ night</span>
                   </div>
                   <Link to="/reserve" className="btn-primary" style={{ padding: '12px 28px' }}>
                     Book Now <ArrowRight size={13} />

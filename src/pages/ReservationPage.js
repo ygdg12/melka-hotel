@@ -5,12 +5,12 @@ import useReveal from '../hooks/useReveal';
 import { sendEmail, buildReservationEmail } from '../utils/sendEmail';
 
 const ROOM_TYPES = [
-  { value: 'standard-single', label: 'Standard Single — from $40/night' },
-  { value: 'standard-delux', label: 'Standard Delux — from $50/night' },
-  { value: 'double-delux', label: 'Double Delux — from $55/night' },
-  { value: 'twin-delux', label: 'Twin Delux — from $65/night' },
-  { value: 'triple-deluxe-suite', label: 'Triple Deluxe Suite — from $90/night' },
-  { value: 'family-suite', label: 'Family Suite — from $80/night' },
+  { value: 'standard-single', label: 'Standard Single — from 4,999 ETB/night' },
+  { value: 'standard-delux', label: 'Standard Delux — from 5,999 ETB/night' },
+  { value: 'double-delux', label: 'Double Delux — from 6,999 ETB/night' },
+  { value: 'twin-delux', label: 'Twin Delux — from 8,999 ETB/night' },
+  { value: 'triple-deluxe-suite', label: 'Triple Deluxe Suite — from 11,999 ETB/night' },
+  { value: 'family-suite', label: 'Family Suite — from 10,999 ETB/night' },
 ];
 
 const INITIAL_FORM = {

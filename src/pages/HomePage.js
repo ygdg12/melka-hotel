@@ -11,21 +11,21 @@ const ROOMS = [
   {
     tag: 'Standard',
     title: 'Standard Single',
-    price: '$40',
+    price: '4,999 ETB',
     desc: 'Max 1 guest · Single Bed',
     img: PHOTOS.rooms[0],
   },
   {
     tag: 'Signature',
     title: 'Standard Delux',
-    price: '$50',
+    price: '5,999 ETB',
     desc: 'Max 2 guests · Single Bed',
     img: PHOTOS.rooms[1],
   },
   {
     tag: 'Premium',
     title: 'Double Delux',
-    price: '$55',
+    price: '6,999 ETB',
     desc: 'Max 4 guests · Twin Bed',
     img: PHOTOS.rooms[2],
   },
@@ -83,9 +83,6 @@ function RevealSection({ children, className = '', style = {} }) {
 }
 
 const HomePage = () => {
-  const today = new Date().toISOString().split('T')[0];
-  const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
-
   return (
     <main>
       {/* HERO */}
@@ -107,42 +104,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
-      {/* QUICK BOOK */}
-      <div className="quick-book">
-        <div className="quick-book-inner">
-          <div className="quick-book-field">
-            <label className="quick-book-label">Check In</label>
-            <input type="date" defaultValue={today} className="form-control" style={{ background: 'transparent', border: 'none', padding: 0, fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: 'var(--cream)' }} />
-          </div>
-          <div className="quick-book-field">
-            <label className="quick-book-label">Check Out</label>
-            <input type="date" defaultValue={tomorrow} className="form-control" style={{ background: 'transparent', border: 'none', padding: 0, fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: 'var(--cream)' }} />
-          </div>
-          <div className="quick-book-field">
-            <label className="quick-book-label">Guests</label>
-            <select style={{ background: 'transparent', border: 'none', outline: 'none', fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: 'var(--cream)' }}>
-              <option value="1">1 Guest</option>
-              <option value="2">2 Guests</option>
-              <option value="3">3 Guests</option>
-              <option value="4">4+ Guests</option>
-            </select>
-          </div>
-          <div className="quick-book-field">
-            <label className="quick-book-label">Room Type</label>
-            <select style={{ background: 'transparent', border: 'none', outline: 'none', fontFamily: 'var(--font-body)', fontSize: '0.9rem', color: 'var(--cream)' }}>
-              <option>Any Room</option>
-              <option>Deluxe City View</option>
-              <option>Executive Suite</option>
-              <option>Junior Suite</option>
-              <option>Royal Penthouse</option>
-            </select>
-          </div>
-          <Link to="/reserve" className="quick-book-btn">
-            Check Availability <ArrowRight size={14} />
-          </Link>
-        </div>
-      </div>
 
       {/* ABOUT */}
       <section className="section">
