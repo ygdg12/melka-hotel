@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Utensils, Waves, Dumbbell, Wind, Coffee, ConciergeBell, Wifi, Car, Users, Sparkles, Bus, Shirt } from 'lucide-react';
+import { ArrowRight, Utensils, Waves, Dumbbell, ConciergeBell, Wifi, Car, Users, Sparkles, Bus, Shirt, ShoppingBag, Wine } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
 import { AMENITY_IMAGES } from '../utils/images';
 
@@ -12,12 +12,6 @@ const AMENITIES = [
     title: 'Fine Dining Restaurant',
     desc: 'Our signature restaurant offers an unmatched dining experience utilizing the freshest locally-sourced ingredients, masterfully prepared by our professional chefs. With white tablecloths, candlelight, and impeccable service — every meal becomes an occasion.',
     img: AMENITY_IMAGES.fineDining,
-  },
-  {
-    icon: Wind,
-    title: 'Rooftop Bar & Terrace',
-    desc: 'Perched atop the hotel, our open-air rooftop terrace offers sweeping panoramic views of Addis Ababa. Enjoy signature cocktails, fine Ethiopian tej (honey wine), and light bites as the city lights come alive at sunset.',
-    img: AMENITY_IMAGES.rooftopBar,
   },
   {
     icon: Waves,
@@ -32,16 +26,22 @@ const AMENITIES = [
     img: AMENITY_IMAGES.fitness,
   },
   {
-    icon: Coffee,
-    title: 'Ethiopian Coffee Lounge',
-    desc: 'Experience the world\'s finest coffee — at its source. Our lounge offers a daily Ethiopian coffee ceremony, specialty single-origin brews, fresh pastries, and a curated selection of teas in an intimate, warmly lit setting.',
-    img: AMENITY_IMAGES.coffeeLounge,
+    icon: ShoppingBag,
+    title: 'Souvenir Shop',
+    desc: 'Take a piece of Ethiopia home with you. Our on-site souvenir shop is stocked with authentic Ethiopian crafts, traditional garments, handmade jewellery, leather goods, cultural keepsakes, and locally curated gifts — perfect for loved ones or as a lasting memory of your stay.',
+    img: AMENITY_IMAGES.souvenirShop,
   },
   {
     icon: Users,
     title: 'Conference & Event Rooms',
     desc: 'We have different types of Syndicate Conference Rooms with full audio-visual accessories and closed halls. Perfect for corporate meetings, seminars, product launches, and private events of all sizes.',
     img: AMENITY_IMAGES.conference,
+  },
+  {
+    icon: Wine,
+    title: 'Bar & Lounge',
+    desc: 'Unwind at our sophisticated bar and lounge, where premium spirits, signature cocktails, and fine wines await. Whether you prefer a quiet evening drink or a lively social gathering, our elegantly lit bar sets the perfect mood for every occasion.',
+    img: AMENITY_IMAGES.bar,
   },
 ];
 

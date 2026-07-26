@@ -36,7 +36,9 @@ export const AMENITY_IMAGES = {
   spa: pub('Capture23.PNG'),
   fitness: pub('DSC_9953.JPG'),
   coffeeLounge: pub('DSC_9913.JPG'),
-  conference: pub('DSC_9897.JPG'),
+  conference: pub('conference_new.jpg'),
+  souvenirShop: pub('souvenir_shop.jpg'),
+  bar: pub('bar.jpg'),
 };
 
 export const PHOTOS = {
@@ -67,11 +69,11 @@ export const PHOTOS = {
   ],
   amenities: [
     AMENITY_IMAGES.fineDining,
-    AMENITY_IMAGES.rooftopBar,
     AMENITY_IMAGES.spa,
     AMENITY_IMAGES.fitness,
-    AMENITY_IMAGES.coffeeLounge,
+    AMENITY_IMAGES.souvenirShop,
     AMENITY_IMAGES.conference,
+    AMENITY_IMAGES.bar,
   ],
 };
 
