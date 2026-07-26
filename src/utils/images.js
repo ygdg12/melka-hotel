@@ -33,7 +33,7 @@ export const ROOM_IMAGES = {
 export const AMENITY_IMAGES = {
   fineDining: pub('DSC_9833.JPG'),
   rooftopBar: pub('DSC_9768.JPG'),
-  spa: pub('Capture23.PNG'),
+  spa: pub('spa.jpg'),
   fitness: pub('DSC_9953.JPG'),
   coffeeLounge: pub('DSC_9913.JPG'),
   conference: pub('conference_new.jpg'),
