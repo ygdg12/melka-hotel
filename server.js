@@ -17,7 +17,7 @@ const app    = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const FROM_ADDRESS = 'Melka International Hotel <onboarding@resend.dev>';
-const TO_ADDRESS   = 'yaredgirmab1234@gmail.com';
+const TO_ADDRESS   = 'melekainternationalhotel@gmail.com';
 
 // ── Middleware ────────────────────────────────────────────────────────────────
 app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001'] }));

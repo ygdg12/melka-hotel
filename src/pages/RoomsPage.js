@@ -14,7 +14,7 @@ const ROOMS = [
     capacity: 'Max 1 guest',
     bed: 'Single Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 4999,
+    price: 4449,
     img: PHOTOS.rooms[0],
   },
   {
@@ -24,7 +24,7 @@ const ROOMS = [
     capacity: 'Max 2 guests',
     bed: 'Single Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 5999,
+    price: 5549,
     img: PHOTOS.rooms[1],
   },
   {
@@ -34,7 +34,7 @@ const ROOMS = [
     capacity: 'Max 4 guests',
     bed: 'Twin Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 6999,
+    price: 7249,
     img: PHOTOS.rooms[2],
   },
   {
@@ -44,7 +44,7 @@ const ROOMS = [
     capacity: 'Max 4 guests',
     bed: 'Twin Bed',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 8999,
+    price: 8899,
     img: PHOTOS.rooms[3],
   },
   {
@@ -54,7 +54,7 @@ const ROOMS = [
     capacity: 'Max 6 guests',
     bed: '3 Twin Beds',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 11999,
+    price: 13299,
     img: PHOTOS.rooms[4],
   },
   {
@@ -64,7 +64,7 @@ const ROOMS = [
     capacity: 'Max 5 guests',
     bed: 'Queen',
     services: ['Wifi', 'Television', 'Bathroom'],
-    price: 10999,
+    price: 12999,
     img: PHOTOS.rooms[5],
   },
 ];
