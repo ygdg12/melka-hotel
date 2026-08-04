@@ -9,6 +9,8 @@
 
 require('dotenv').config();
 
+const path    = require('path');
+const fs      = require('fs');
 const express = require('express');
 const cors    = require('cors');
 const { Resend } = require('resend');
@@ -19,8 +21,10 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM_ADDRESS = 'Melka International Hotel <onboarding@resend.dev>';
 const TO_ADDRESS   = 'melekainternationalhotel@gmail.com';
 
+const BUILD_DIR = path.join(__dirname, 'build');
+
 // ── Middleware ────────────────────────────────────────────────────────────────
-app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3001'] }));
+app.use(cors({ origin: ['http://localhost:3000', 'http://localhost:3005'] }));
 app.use(express.json());
 
 // ── Health check ──────────────────────────────────────────────────────────────
@@ -55,8 +59,21 @@ app.post('/api/send-email', async (req, res) => {
   }
 });
 
+// ── Serve production build (single origin for site + API) ───────────────────
+// Prevents the 405 "Method Not Allowed" seen when the built app is served by a
+// static file server that rejects POST /api/send-email.
+if (fs.existsSync(BUILD_DIR)) {
+  app.use(express.static(BUILD_DIR));
+  app.use((req, res, next) => {
+    if (req.method === 'GET' && !req.path.startsWith('/api')) {
+      return res.sendFile(path.join(BUILD_DIR, 'index.html'));
+    }
+    next();
+  });
+}
+
 // ── Start ─────────────────────────────────────────────────────────────────────
-const PORT = process.env.SERVER_PORT || 3001;
+const PORT = process.env.SERVER_PORT || 3005;
 app.listen(PORT, () => {
   console.log(`\n✅  Melka proxy server running on http://localhost:${PORT}`);
   console.log(`    RESEND_API_KEY loaded: ${process.env.RESEND_API_KEY ? 'YES ✓' : 'NO ✗'}\n`);

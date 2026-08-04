@@ -19,7 +19,7 @@
     "react-scripts": "5.0.1",
     "resend": "^2.1.0"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:3005",
   "scripts": {
     "start": "react-scripts start",
     "server": "node server.js",
