@@ -88,7 +88,7 @@ const ContactPage = () => {
                 <div>
                   <div className="contact-info-label">Email</div>
                   <div className="contact-info-value">
-                    melekainternationahotel@gmail.com
+                    melekainternationalhotel@gmail.com
                   </div>
                 </div>
               </div>

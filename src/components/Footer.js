@@ -51,7 +51,7 @@ const Footer = () => (
           </div>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
             <Mail size={14} color="var(--gold)" />
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--gray)' }}>melekainternationahotel@gmail.com</span>
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--gray)' }}>melekainternationalhotel@gmail.com</span>
           </div>
         </div>
       </div>
