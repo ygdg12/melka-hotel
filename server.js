@@ -19,7 +19,7 @@ const app    = express();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const FROM_ADDRESS = 'Melka International Hotel <onboarding@resend.dev>';
-const TO_ADDRESS   = 'melekainternationalhotel@gmail.com';
+const TO_ADDRESS   = 'melekainternationahotel@gmail.com';
 
 const BUILD_DIR = path.join(__dirname, 'build');
 

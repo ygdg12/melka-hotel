@@ -78,8 +78,8 @@ const ContactPage = () => {
                 <div>
                   <div className="contact-info-label">Phone</div>
                   <div className="contact-info-value">
-                    +251 11 XXX XXXX<br />
-                    +251 91 XXX XXXX (WhatsApp)
+                    0115580028<br />
+                    0115580030
                   </div>
                 </div>
               </div>
@@ -88,8 +88,7 @@ const ContactPage = () => {
                 <div>
                   <div className="contact-info-label">Email</div>
                   <div className="contact-info-value">
-                    info@melkainternationalhotel.com<br />
-                    reservations@melkainternationalhotel.com
+                    melekainternationahotel@gmail.com
                   </div>
                 </div>
               </div>

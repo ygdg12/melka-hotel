@@ -11,7 +11,7 @@ const { Resend } = require('resend');
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const FROM_ADDRESS = 'Melka International Hotel <onboarding@resend.dev>';
-const TO_ADDRESS   = 'melekainternationalhotel@gmail.com';
+const TO_ADDRESS   = 'melekainternationahotel@gmail.com';
 
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');

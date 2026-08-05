@@ -47,11 +47,11 @@ const Footer = () => (
           </div>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
             <Phone size={14} color="var(--gold)" />
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--gray)' }}>+251 11 XXX XXXX</span>
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--gray)', lineHeight: 1.7 }}>0115580028<br />0115580030</span>
           </div>
           <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
             <Mail size={14} color="var(--gold)" />
-            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--gray)' }}>info@melkainternationalhotel.com</span>
+            <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--gray)' }}>melekainternationahotel@gmail.com</span>
           </div>
         </div>
       </div>
