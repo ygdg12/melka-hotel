@@ -68,8 +68,8 @@ export function buildContactEmail({ name, email, subject, message }) {
 /**
  * Build the HTML body for a Reservation-form submission.
  */
-export function buildReservationEmail({ fullName, email, phone, roomType, checkIn, checkOut, guests }) {
-  const nights = checkIn && checkOut
+export function buildReservationEmail({ fullName, email, phone, roomType, guestTypeLabel, checkIn, checkOut, guests, nightlyRate, rateBreakdown, totalStayPrice }) {
+  const stayNights = checkIn && checkOut
     ? Math.max(0, Math.round((new Date(checkOut) - new Date(checkIn)) / 86400000))
     : '—';
 
@@ -84,11 +84,11 @@ export function buildReservationEmail({ fullName, email, phone, roomType, checkI
     .header  { background: #1a1a1a; padding: 32px 40px; border-bottom: 1px solid #c9a96e; }
     .header h1 { font-size: 22px; margin: 0; color: #c9a96e; letter-spacing: 0.15em; text-transform: uppercase; }
     .body    { padding: 40px; }
-    .grid    { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .field   { margin-bottom: 24px; }
+    .field   { margin-bottom: 20px; }
     .label   { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #c9a96e; margin-bottom: 6px; }
     .value   { font-size: 15px; color: #f5f0e8; line-height: 1.7; }
-    .badge   { display: inline-block; background: #c9a96e; color: #0a0a0a; padding: 4px 14px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 8px; }
+    .badge   { display: inline-block; background: #c9a96e; color: #0a0a0a; padding: 6px 16px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 12px; font-weight: bold; }
+    .price-box { background: #1f1f1f; border: 1px solid #c9a96e; padding: 20px; margin-top: 20px; border-radius: 4px; }
     .footer  { background: #1a1a1a; padding: 20px 40px; font-size: 11px; color: #888; border-top: 1px solid #222; }
   </style>
 </head>
@@ -102,16 +102,29 @@ export function buildReservationEmail({ fullName, email, phone, roomType, checkI
       <div class="field"><div class="label">Guest Name</div><div class="value">${fullName}</div></div>
       <div class="field"><div class="label">Email</div><div class="value">${email}</div></div>
       ${phone ? `<div class="field"><div class="label">Phone</div><div class="value">${phone}</div></div>` : ''}
+      ${guestTypeLabel ? `<div class="field"><div class="label">Guest Category</div><div class="value"><strong>${guestTypeLabel}</strong></div></div>` : ''}
       <div class="field"><div class="label">Room Type</div><div class="value">${roomType}</div></div>
       <div class="field">
-        <div class="label">Stay</div>
+        <div class="label">Stay Dates</div>
         <div class="value">
           Check-in: <strong>${checkIn}</strong><br/>
           Check-out: <strong>${checkOut}</strong><br/>
-          Duration: <strong>${nights} night${nights !== 1 ? 's' : ''}</strong>
+          Duration: <strong>${stayNights} night${stayNights !== 1 ? 's' : ''}</strong>
         </div>
       </div>
-      <div class="field"><div class="label">Guests</div><div class="value">${guests}</div></div>
+      <div class="field"><div class="label">Guests</div><div class="value">${guests} Guest${guests > 1 ? 's' : ''}</div></div>
+      
+      ${nightlyRate ? `
+      <div class="price-box">
+        <div class="label">Pricing Summary</div>
+        <div class="value">
+          Nightly Rate: <strong>${nightlyRate}</strong><br/>
+          ${rateBreakdown ? `Rate Details: ${rateBreakdown}<br/>` : ''}
+          ${totalStayPrice ? `Total Estimated Stay: <strong style="color: #c9a96e; font-size: 18px;">${totalStayPrice}</strong>` : ''}
+        </div>
+      </div>
+      ` : ''}
+
       <div><span class="badge">Awaiting Confirmation</span></div>
     </div>
     <div class="footer">Sent via melkainternationalhotel.com · ${new Date().toUTCString()}</div>
@@ -119,3 +132,4 @@ export function buildReservationEmail({ fullName, email, phone, roomType, checkI
 </body>
 </html>`;
 }
+

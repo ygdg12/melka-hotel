@@ -1614,3 +1614,130 @@ textarea.form-control {
   .cta-bg { background: linear-gradient(to bottom, rgba(10,10,10,0.95) 30%, rgba(10,10,10,0.6) 100%), var(--cta-img) center/cover !important; }
   .cta-content { padding: 40px 24px !important; }
 }
+
+/* ─── GUEST RATE SWITCHER & PRICING STYLES ─── */
+.rate-switcher-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.rate-switcher {
+  display: inline-flex;
+  background: var(--black-card);
+  border: 1px solid var(--gold);
+  border-radius: 40px;
+  padding: 5px;
+  gap: 6px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.rate-switcher-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 30px;
+  border: none;
+  background: transparent;
+  color: var(--gray);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer !important;
+}
+
+.rate-switcher-btn.active {
+  background: var(--gold);
+  color: var(--black);
+  box-shadow: 0 4px 15px rgba(212, 175, 114, 0.3);
+  font-weight: 600;
+}
+
+.rate-switcher-btn:hover:not(.active) {
+  color: var(--cream);
+  background: rgba(212, 175, 114, 0.1);
+}
+
+.rate-switcher-badge {
+  font-size: 0.6rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(10, 10, 10, 0.15);
+  letter-spacing: 0.05em;
+}
+
+.rate-info-banner {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--gold-light);
+  background: rgba(212, 175, 114, 0.08);
+  border: 1px dashed rgba(212, 175, 114, 0.4);
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin-top: 16px;
+  text-align: center;
+  max-width: 600px;
+}
+
+.booking-summary-card {
+  background: var(--black-card);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.booking-summary-header {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--gold);
+  border-bottom: 1px solid var(--black-border);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.booking-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: var(--gray);
+  margin-bottom: 10px;
+}
+
+.booking-summary-row strong {
+  color: var(--cream);
+  font-weight: 500;
+}
+
+.booking-summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--black-border);
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.booking-summary-total-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--cream);
+}
+
+.booking-summary-total-price {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+

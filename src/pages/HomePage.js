@@ -7,27 +7,32 @@ import {
 import useReveal from '../hooks/useReveal';
 import { PHOTOS } from '../utils/images';
 
-const ROOMS = [
+import { ROOMS_DATA } from '../data/roomsData';
+
+const FEATURED_ROOMS = [
   {
     tag: 'Standard',
-    title: 'Standard Single',
-    price: '4,449 ETB',
-    desc: 'Max 1 guest · Single Bed',
-    img: PHOTOS.rooms[0],
+    title: ROOMS_DATA[0].title,
+    price: '4,050 ETB / $32 USD',
+    desc: 'Max 2 guests · Single Bed',
+    img: ROOMS_DATA[0].img,
+    id: ROOMS_DATA[0].id,
   },
   {
     tag: 'Signature',
-    title: 'Standard Delux',
-    price: '5,549 ETB',
+    title: ROOMS_DATA[1].title,
+    price: '5,050 ETB / $37 USD',
     desc: 'Max 2 guests · Single Bed',
-    img: PHOTOS.rooms[1],
+    img: ROOMS_DATA[1].img,
+    id: ROOMS_DATA[1].id,
   },
   {
     tag: 'Premium',
-    title: 'Double Delux',
-    price: '7,249 ETB',
-    desc: 'Max 4 guests · Twin Bed',
-    img: PHOTOS.rooms[2],
+    title: ROOMS_DATA[2].title,
+    price: '6,600 ETB / $40 USD',
+    desc: 'Base 2 guests · Double Bed',
+    img: ROOMS_DATA[2].img,
+    id: ROOMS_DATA[2].id,
   },
 ];
 
@@ -165,7 +170,7 @@ const HomePage = () => {
           </div>
         </RevealSection>
         <div className="rooms-grid" style={{ marginTop: 64 }}>
-          {ROOMS.map((room, i) => (
+          {FEATURED_ROOMS.map((room, i) => (
             <RevealSection key={room.title} className={`reveal-delay-${i + 1}`}>
               <div className="room-card">
                 <img src={room.img} alt={room.title} className="room-card-img" loading="lazy" />
@@ -177,7 +182,7 @@ const HomePage = () => {
                     <span className="room-card-price-num">{room.price}</span>
                     <span className="room-card-price-per">/ night</span>
                   </div>
-                  <Link to="/reserve" className="room-card-link">
+                  <Link to={`/reserve?room=${room.id}`} className="room-card-link">
                     Reserve <ArrowRight size={13} />
                   </Link>
                 </div>
