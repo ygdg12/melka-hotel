@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, Bed, Globe, MapPin } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
-import { PHOTOS } from '../utils/images';
+import { ROOM_IMAGES } from '../utils/images';
 import { ROOMS_DATA, calculateRoomPrice } from '../data/roomsData';
 
-const pageHeroBg = PHOTOS.rooms[0];
+const pageHeroBg = ROOM_IMAGES.familySuite;
 
 function RevealSection({ children, className = '' }) {
   const ref = useReveal();

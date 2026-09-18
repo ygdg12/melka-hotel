@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, Star, Car, Utensils, Dumbbell,
-  Coffee, ConciergeBell, Waves, Wind
+  ShoppingBag, ConciergeBell, Users, Wine
 } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
 import { PHOTOS } from '../utils/images';
@@ -38,10 +38,10 @@ const FEATURED_ROOMS = [
 
 const AMENITIES = [
   { icon: Utensils, title: 'Fine Dining', desc: 'Locally-sourced cuisine crafted by world-class chefs with authentic Ethiopian flair and international elegance.' },
-  { icon: Waves, title: 'Spa & Wellness', desc: 'Full-service spa with body wraps, facials, sauna, and rejuvenating treatments for mind and body.' },
+  { icon: Users, title: 'Conference Rooms', desc: 'Syndicate conference rooms and halls equipped with modern audio-visual technology for business meetings and events.' },
   { icon: Dumbbell, title: 'Fitness Center', desc: 'State-of-the-art gym open around the clock, with personal training available on request.' },
-  { icon: Wind, title: 'Rooftop Bar', desc: 'Panoramic views of Addis Ababa from our top-floor open terrace — the perfect spot for sundowners.' },
-  { icon: Coffee, title: 'Coffee Lounge', desc: "Ethiopian coffee culture at its finest — ceremony, specialty brews, and freshly baked pastries daily." },
+  { icon: Wine, title: 'Bar & Lounge', desc: 'Unwind with premium spirits, signature cocktails, and fine wines in our sophisticated, ambient lounge.' },
+  { icon: ShoppingBag, title: 'Souvenir Shop', desc: 'Authentic Ethiopian crafts, traditional garments, handmade jewellery, and cultural keepsakes on-site.' },
   { icon: ConciergeBell, title: '24h Concierge', desc: 'Our dedicated team is available day and night to ensure every request is met with precision.' },
   { icon: Car, title: 'Airport Shuttle', desc: 'Complimentary airport pickup and drop-off — enjoy a seamless arrival and departure from Bole International Airport.' },
   { icon: Car, title: 'Free Parking', desc: 'Secure on-site private parking with valet service available for guests arriving by vehicle.' },
@@ -68,14 +68,13 @@ const TESTIMONIALS = [
 const aboutImgs = [PHOTOS.rooms[3], PHOTOS.rooms[4]];
 const ctaImg = PHOTOS.cta;
 const GALLERY = [
-  { src: PHOTOS.gallery[0], alt: 'Hotel exterior' },
-  { src: PHOTOS.gallery[1], alt: 'Deluxe room' },
-  { src: PHOTOS.gallery[2], alt: 'Fine dining' },
-  { src: PHOTOS.gallery[3], alt: 'Fitness center' },
-  { src: PHOTOS.gallery[4], alt: 'Gym equipment' },
-  { src: PHOTOS.gallery[5], alt: 'Cardio area' },
-  { src: PHOTOS.gallery[6], alt: 'Lounge area' },
-  { src: PHOTOS.gallery[7], alt: 'Coffee lounge' },
+  { src: PHOTOS.gallery[0], alt: 'Hotel lobby' },
+  { src: PHOTOS.gallery[1], alt: 'Fitness center' },
+  { src: PHOTOS.gallery[2], alt: 'Hotel bar' },
+  { src: PHOTOS.gallery[3], alt: 'Front desk' },
+  { src: PHOTOS.gallery[4], alt: 'Bar lounge' },
+  { src: PHOTOS.gallery[5], alt: 'Reception area' },
+  { src: PHOTOS.gallery[6], alt: 'Dining hall' },
 ];
 
 function RevealSection({ children, className = '', style = {} }) {
@@ -141,7 +140,7 @@ const HomePage = () => {
               Nestled in the vibrant heart of Arada, Addis Ababa, Melka International Hotel is a four-star sanctuary where authentic Ethiopian warmth meets world-class luxury. Just a 4-minute walk from the iconic Derg Monument and moments from the National Palace, we offer an unrivalled address for discerning travellers.
             </p>
             <p className="section-body" style={{ marginTop: 20 }}>
-              Our individually furnished rooms and suites, our award-winning restaurant, rooftop bar, full-service spa, and dedicated team combine to create an experience that is as memorable as the city itself.
+              Our individually furnished rooms and suites, our award-winning restaurant, sophisticated bar lounge, modern conference facilities, and dedicated team combine to create an experience that is as memorable as the city itself.
             </p>
             <div className="about-stats">
               {[

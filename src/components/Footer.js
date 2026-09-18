@@ -28,11 +28,11 @@ const Footer = () => (
       <div>
         <div className="footer-col-title">Experiences</div>
         <ul className="footer-links">
-          <li><a href="#dining">Fine Dining</a></li>
-          <li><a href="#spa">Spa & Wellness</a></li>
-          <li><a href="#fitness">Fitness Center</a></li>
-          <li><a href="#rooftop">Rooftop Bar</a></li>
-          <li><a href="#conference">Conference Rooms</a></li>
+          <li><Link to="/amenities">Fine Dining</Link></li>
+          <li><Link to="/amenities">Fitness Center</Link></li>
+          <li><Link to="/amenities">Bar & Lounge</Link></li>
+          <li><Link to="/amenities">Conference Rooms</Link></li>
+          <li><Link to="/amenities">Souvenir Shop</Link></li>
         </ul>
       </div>
 

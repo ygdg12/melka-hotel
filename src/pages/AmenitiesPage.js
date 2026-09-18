@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Utensils, Waves, Dumbbell, ConciergeBell, Wifi, Car, Users, Sparkles, Bus, Shirt, ShoppingBag, Wine } from 'lucide-react';
+import { ArrowRight, Utensils, Dumbbell, ConciergeBell, Wifi, Car, Users, Sparkles, Bus, Shirt, ShoppingBag, Wine } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
 import { AMENITY_IMAGES } from '../utils/images';
 
@@ -12,12 +12,6 @@ const AMENITIES = [
     title: 'Fine Dining Restaurant',
     desc: 'Our signature restaurant offers an unmatched dining experience utilizing the freshest locally-sourced ingredients, masterfully prepared by our professional chefs. With white tablecloths, candlelight, and impeccable service — every meal becomes an occasion.',
     img: AMENITY_IMAGES.fineDining,
-  },
-  {
-    icon: Waves,
-    title: 'Spa & Wellness Centre',
-    desc: 'An oasis of tranquility — our full-service spa offers body wraps, revitalizing facials, deep-tissue massages, and traditional Ethiopian steam treatments. Surrender to total relaxation in our serene, elegantly appointed treatment rooms.',
-    img: AMENITY_IMAGES.spa,
   },
   {
     icon: Dumbbell,
