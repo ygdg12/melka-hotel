@@ -113,7 +113,7 @@ const AmenitiesPage = () => (
       </div>
 
       <RevealSection>
-        <div style={{ marginTop: 100, padding: '64px', background: 'var(--black-card)', border: '1px solid var(--black-border)' }}>
+        <div className="amenities-extras-wrapper" style={{ marginTop: 100, padding: '64px', background: 'var(--black-card)', border: '1px solid var(--black-border)' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div className="section-eyebrow" style={{ justifyContent: 'center' }}>Included For All Guests</div>
             <h3 className="section-title" style={{ textAlign: 'center' }}>Additional <em>Services</em></h3>

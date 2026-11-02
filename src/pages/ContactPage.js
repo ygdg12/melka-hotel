@@ -119,7 +119,7 @@ const ContactPage = () => {
 
           {/* FORM */}
           <RevealSection className="reveal-delay-2">
-            <div style={{ background: 'var(--black-card)', border: '1px solid var(--black-border)', padding: '48px 44px' }}>
+            <div className="contact-form-card" style={{ background: 'var(--black-card)', border: '1px solid var(--black-border)', padding: '48px 44px' }}>
               <div style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', color: 'var(--cream)', marginBottom: 32 }}>
                 Send a <em style={{ color: 'var(--gold)' }}>Message</em>
               </div>

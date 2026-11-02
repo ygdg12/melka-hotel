@@ -17,6 +17,15 @@ const Navbar = () => {
 
   useEffect(() => setMobileOpen(false), [location]);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    return () => document.body.classList.remove('menu-open');
+  }, [mobileOpen]);
+
   return (
     <>
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
@@ -52,19 +61,12 @@ const Navbar = () => {
       </nav>
 
       {mobileOpen && (
-        <div style={{
-          position: 'fixed', inset: 0, background: 'rgba(10,10,10,0.98)',
-          zIndex: 999, display: 'flex', flexDirection: 'column',
-          alignItems: 'center', justifyContent: 'center', gap: 36
-        }}>
-          <img src={LOGO} alt="Logo" style={{ height: '72px', width: 'auto', marginBottom: 8 }} />
+        <div className="mobile-menu-overlay">
+          <img src={LOGO} alt="Logo" style={{ height: '64px', width: 'auto', marginBottom: 8 }} />
           {['/', '/rooms', '/amenities', '/contact', '/reserve'].map((path, i) => {
             const labels = ['Home', 'Rooms', 'Amenities', 'Contact', 'Reserve Now'];
             return (
-              <Link key={path} to={path} style={{
-                fontFamily: 'var(--font-display)', fontSize: '2.5rem',
-                color: i === 4 ? 'var(--gold)' : 'var(--cream)', textDecoration: 'none'
-              }}>
+              <Link key={path} to={path}>
                 {labels[i]}
               </Link>
             );

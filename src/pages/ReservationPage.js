@@ -138,7 +138,7 @@ const ReservationPage = () => {
             {/* Guest Category / Currency Selector */}
             <div className="form-group full" style={{ marginBottom: 24 }}>
               <label className="form-label" style={{ fontSize: '0.75rem', marginBottom: 8, display: 'block' }}>Guest Category *</label>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              <div className="guest-category-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                 <button
                   type="button"
                   className={`rate-switcher-btn ${!isInternational ? 'active' : ''}`}

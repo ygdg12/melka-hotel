@@ -13,7 +13,7 @@ const FEATURED_ROOMS = [
   {
     tag: 'Standard',
     title: ROOMS_DATA[0].title,
-    price: '4,050 ETB / $32 USD',
+    price: '4,450 ETB / $32 USD',
     desc: 'Max 2 guests · Single Bed',
     img: ROOMS_DATA[0].img,
     id: ROOMS_DATA[0].id,
@@ -21,7 +21,7 @@ const FEATURED_ROOMS = [
   {
     tag: 'Signature',
     title: ROOMS_DATA[1].title,
-    price: '5,050 ETB / $37 USD',
+    price: '5,550 ETB / $37 USD',
     desc: 'Max 2 guests · Single Bed',
     img: ROOMS_DATA[1].img,
     id: ROOMS_DATA[1].id,
@@ -29,7 +29,7 @@ const FEATURED_ROOMS = [
   {
     tag: 'Premium',
     title: ROOMS_DATA[2].title,
-    price: '6,600 ETB / $40 USD',
+    price: '7,250 ETB / $40 USD',
     desc: 'Base 2 guests · Double Bed',
     img: ROOMS_DATA[2].img,
     id: ROOMS_DATA[2].id,

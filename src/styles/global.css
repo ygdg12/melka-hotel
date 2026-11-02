@@ -1468,6 +1468,7 @@ textarea.form-control {
 @media (hover: none) and (pointer: coarse) {
   * { cursor: auto !important; }
   .cursor-outer, .cursor-inner { display: none !important; }
+  .room-card-link { opacity: 1; transform: translateY(0); }
 }
 
 /* MOBILE MENU BUTTON */
@@ -1485,6 +1486,65 @@ textarea.form-control {
     align-items: center;
     justify-content: center;
   }
+}
+
+/* MOBILE MENU OVERLAY */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.98);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  animation: menuFadeIn 0.3s ease forwards;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 80px 20px;
+}
+
+.mobile-menu-overlay a {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--cream);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  opacity: 0;
+  animation: menuItemSlide 0.4s ease forwards;
+}
+
+.mobile-menu-overlay a:nth-child(2) { animation-delay: 0.05s; }
+.mobile-menu-overlay a:nth-child(3) { animation-delay: 0.1s; }
+.mobile-menu-overlay a:nth-child(4) { animation-delay: 0.15s; }
+.mobile-menu-overlay a:nth-child(5) { animation-delay: 0.2s; }
+.mobile-menu-overlay a:nth-child(6) { animation-delay: 0.25s; }
+
+.mobile-menu-overlay a:last-child {
+  color: var(--gold);
+  margin-top: 8px;
+  padding: 14px 40px;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@keyframes menuFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes menuItemSlide {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 /* MOBILE */
@@ -1744,5 +1804,100 @@ textarea.form-control {
   font-size: 1.8rem;
   color: var(--gold);
   font-weight: 600;
+}
+
+/* ─── ENHANCED MOBILE RESPONSIVENESS ─── */
+
+/* Quick book field stacking fix */
+@media (max-width: 1024px) {
+  .quick-book-field { border-right: none; border-bottom: 1px solid var(--black-border); }
+  .quick-book-field:last-of-type { border-bottom: none; }
+}
+
+/* Tablet & small screen adjustments */
+@media (max-width: 768px) {
+  /* Footer stacking */
+  .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+
+  /* Gallery */
+  .gallery-title-row { padding: 0 20px; }
+  .gallery-section { padding-top: 80px !important; }
+
+  /* Booking summary */
+  .booking-summary-card { padding: 20px 16px; }
+  .booking-summary-header { flex-direction: column; gap: 6px; align-items: flex-start; }
+  .booking-summary-total { flex-direction: column; gap: 8px; align-items: flex-start; }
+  .booking-summary-total-price { font-size: 1.5rem; }
+
+  /* Rate switcher */
+  .rate-switcher { flex-direction: column; width: 100%; }
+  .rate-switcher-btn { justify-content: center; }
+
+  /* Room card link visible on mobile (no hover) */
+  .room-card-link { opacity: 1; transform: translateY(0); }
+
+  /* Amenities extras wrapper */
+  .amenities-extras-wrapper { padding: 40px 24px !important; }
+
+  /* Contact form card */
+  .contact-form-card { padding: 36px 24px !important; }
+
+  /* Guest category grid stacking */
+  .guest-category-grid { grid-template-columns: 1fr !important; }
+
+  /* Reservation form max width */
+  .reserve-form { max-width: 100% !important; }
+
+  /* CTA section */
+  .cta-section { margin: 0 20px 80px !important; min-height: 360px !important; }
+  .cta-content { padding: 60px 40px !important; }
+
+  /* Amenities page header alignment fix */
+  .amenities-section > .amenities-inner > .reveal > div { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  /* Footer bottom */
+  .footer-bottom { gap: 16px; }
+  .footer-copy { font-size: 0.58rem; }
+
+  /* Booking summary */
+  .booking-summary-total-price { font-size: 1.3rem; }
+  .booking-summary-row { flex-direction: column; gap: 4px; align-items: flex-start; }
+  .booking-summary-row strong { font-size: 0.85rem; }
+  .booking-summary-header { font-size: 1.05rem; }
+
+  /* Gallery */
+  .gallery-title-row { padding: 0 16px; }
+  .gallery-section { padding-top: 60px !important; }
+
+  /* Mobile menu overlay sizing */
+  .mobile-menu-overlay { gap: 22px; padding: 60px 16px; }
+  .mobile-menu-overlay a { font-size: 1.8rem; }
+  .mobile-menu-overlay a:last-child { font-size: 0.8rem; padding: 12px 28px; }
+
+  /* Amenities extras */
+  .amenities-extras-wrapper { padding: 28px 16px !important; margin-top: 60px !important; }
+
+  /* Contact form */
+  .contact-form-card { padding: 28px 16px !important; }
+
+  /* Room card price text wrapping */
+  .room-card-price { flex-wrap: wrap; }
+  .room-card-price-num { font-size: 1.2rem; }
+
+  /* Hero scroll */
+  .hero-scroll-line { height: 30px; }
+
+  /* Prevent text overflow */
+  .section-body { word-wrap: break-word; overflow-wrap: break-word; }
+  .contact-info-value { word-break: break-all; }
+
+  /* Rate info banner */
+  .rate-info-banner { font-size: 0.72rem; padding: 10px 16px; }
+
+  /* Rate switcher button text */
+  .rate-switcher-btn { font-size: 0.65rem; padding: 10px 16px; }
 }
 
