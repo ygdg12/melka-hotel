@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Loader, MapPin, Globe } from 'lucide-react';
+import { ArrowRight, CheckCircle, Loader } from 'lucide-react';
 import toast from 'react-hot-toast';
 import useReveal from '../hooks/useReveal';
 import { sendEmail, buildReservationEmail } from '../utils/sendEmail';
@@ -19,7 +19,6 @@ const INITIAL_FORM = {
 const ReservationPage = () => {
   const location = useLocation();
   const [form, setForm] = useState(INITIAL_FORM);
-  const [guestType, setGuestType] = useState('local'); // 'local' | 'international'
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const ref = useReveal();
@@ -29,11 +28,7 @@ const ReservationPage = () => {
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
     const roomParam = queryParams.get('room');
-    const guestTypeParam = queryParams.get('guestType');
 
-    if (guestTypeParam === 'international' || guestTypeParam === 'local') {
-      setGuestType(guestTypeParam);
-    }
     if (roomParam && ROOMS_DATA.some(r => r.id === roomParam)) {
       setForm(f => ({ ...f, roomType: roomParam }));
     }
@@ -43,7 +38,6 @@ const ReservationPage = () => {
     setForm(f => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  const isInternational = guestType === 'international';
   const selectedRoom = ROOMS_DATA.find(r => r.id === form.roomType);
 
   // Compute nights
@@ -58,10 +52,10 @@ const ReservationPage = () => {
   }
 
   // Compute pricing
-  const priceInfo = selectedRoom ? calculateRoomPrice(selectedRoom, isInternational, form.guests) : null;
+  const priceInfo = selectedRoom ? calculateRoomPrice(selectedRoom, form.guests) : null;
   const totalStayPrice = (priceInfo && nights > 0) ? priceInfo.price * nights : null;
   const formattedTotalStay = totalStayPrice !== null 
-    ? (isInternational ? `$${totalStayPrice} USD` : `${totalStayPrice.toLocaleString()} ETB`)
+    ? `$${totalStayPrice} USD`
     : null;
 
   const handleSubmit = async (e) => {
@@ -82,7 +76,7 @@ const ReservationPage = () => {
         html: buildReservationEmail({
           ...form,
           roomType: roomLabel,
-          guestTypeLabel: isInternational ? 'International Guest (USD)' : 'Local Guest (ETB)',
+          guestTypeLabel: 'USD',
           nightlyRate: priceInfo ? priceInfo.formattedPrice : '—',
           rateBreakdown: priceInfo ? priceInfo.breakdownText : '',
           nights: nights > 0 ? nights : '—',
@@ -135,29 +129,6 @@ const ReservationPage = () => {
         ) : (
           <form className="reserve-form" onSubmit={handleSubmit} style={{ maxWidth: 650, margin: '0 auto' }}>
             
-            {/* Guest Category / Currency Selector */}
-            <div className="form-group full" style={{ marginBottom: 24 }}>
-              <label className="form-label" style={{ fontSize: '0.75rem', marginBottom: 8, display: 'block' }}>Guest Category *</label>
-              <div className="guest-category-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                <button
-                  type="button"
-                  className={`rate-switcher-btn ${!isInternational ? 'active' : ''}`}
-                  onClick={() => setGuestType('local')}
-                  style={{ justifyContent: 'center', padding: '12px 16px', borderRadius: 8, border: '1px solid var(--gold)' }}
-                >
-                  <MapPin size={14} /> Local Guest (ETB)
-                </button>
-                <button
-                  type="button"
-                  className={`rate-switcher-btn ${isInternational ? 'active' : ''}`}
-                  onClick={() => setGuestType('international')}
-                  style={{ justifyContent: 'center', padding: '12px 16px', borderRadius: 8, border: '1px solid var(--gold)' }}
-                >
-                  <Globe size={14} /> International Guest (USD)
-                </button>
-              </div>
-            </div>
-
             <div className="form-group full">
               <label className="form-label" style={{ fontSize: '0.75rem' }}>Full Name *</label>
               <input name="fullName" value={form.fullName} onChange={handleChange} placeholder="Your full name" className="form-control" style={{ padding: '10px 14px', fontSize: '0.82rem' }} required />
@@ -178,7 +149,7 @@ const ReservationPage = () => {
               <select name="roomType" value={form.roomType} onChange={handleChange} className="form-control" style={{ padding: '10px 14px', fontSize: '0.82rem' }} required>
                 <option value="">Select a room type…</option>
                 {ROOMS_DATA.map(r => {
-                  const p = calculateRoomPrice(r, isInternational, form.guests);
+                  const p = calculateRoomPrice(r, form.guests);
                   return (
                     <option key={r.id} value={r.id}>
                       {r.title} — {p.formattedPrice} / night
@@ -205,9 +176,9 @@ const ReservationPage = () => {
                   <option key={n} value={n}>{n} Guest{n > 1 ? 's' : ''}</option>
                 ))}
               </select>
-              {selectedRoom && isInternational && parseInt(form.guests, 10) > selectedRoom.intlBaseGuests && (
+              {selectedRoom && parseInt(form.guests, 10) > selectedRoom.baseGuests && (
                 <div style={{ fontSize: '0.7rem', color: 'var(--gold)', marginTop: 6 }}>
-                  ℹ Includes {selectedRoom.intlBaseGuests} guest{selectedRoom.intlBaseGuests > 1 ? 's' : ''}. Additional guests are charged +$15 USD/person.
+                  ℹ Includes {selectedRoom.baseGuests} guest{selectedRoom.baseGuests > 1 ? 's' : ''}. Additional guests are charged +$15 USD/person.
                 </div>
               )}
             </div>
@@ -218,7 +189,7 @@ const ReservationPage = () => {
                 <div className="booking-summary-card">
                   <div className="booking-summary-header">
                     <span>Rate Breakdown</span>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--gold)' }}>{isInternational ? 'International (USD)' : 'Local Direct (ETB)'}</span>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--gold)' }}>USD</span>
                   </div>
                   <div className="booking-summary-row">
                     <span>Room:</span>

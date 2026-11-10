@@ -9,11 +9,9 @@ export const ROOMS_DATA = [
     capacityDesc: '1 Guest (Couple option available)',
     bed: 'Single Bed',
     services: ['Free Breakfast', 'Wifi', 'Television', 'Bathroom'],
-    localBasePrice: 4450,
-    localCouplePrice: 5550,
-    intlBasePrice: 32,
-    intlBaseGuests: 1,
-    intlExtraPersonFee: 15,
+    basePrice: 45,
+    baseGuests: 1,
+    extraPersonFee: 15,
     maxGuests: 2,
     img: PHOTOS.rooms[0],
   },
@@ -25,11 +23,9 @@ export const ROOMS_DATA = [
     capacityDesc: '1 Guest (Couple option available)',
     bed: 'Single Bed',
     services: ['Free Breakfast & Wi-Fi', 'Television', 'Bathroom'],
-    localBasePrice: 5550,
-    localCouplePrice: 6550,
-    intlBasePrice: 37,
-    intlBaseGuests: 1,
-    intlExtraPersonFee: 15,
+    basePrice: 50,
+    baseGuests: 1,
+    extraPersonFee: 15,
     maxGuests: 2,
     img: PHOTOS.rooms[1],
   },
@@ -41,11 +37,9 @@ export const ROOMS_DATA = [
     capacityDesc: 'Base 2 Guests',
     bed: 'Double Bed',
     services: ['Free Breakfast & Late Checkout', 'Wifi', 'Television', 'Bathroom'],
-    localBasePrice: 7250,
-    localCouplePrice: 7250,
-    intlBasePrice: 40,
-    intlBaseGuests: 2,
-    intlExtraPersonFee: 15,
+    basePrice: 55,
+    baseGuests: 2,
+    extraPersonFee: 15,
     maxGuests: 4,
     img: PHOTOS.rooms[2],
   },
@@ -57,11 +51,9 @@ export const ROOMS_DATA = [
     capacityDesc: 'Base 2 Guests',
     bed: 'Twin Beds',
     services: ['Free Breakfast & Airport Shuttle', 'Wifi', 'Television', 'Bathroom'],
-    localBasePrice: 8900,
-    localCouplePrice: 8900,
-    intlBasePrice: 58,
-    intlBaseGuests: 2,
-    intlExtraPersonFee: 15,
+    basePrice: 75,
+    baseGuests: 2,
+    extraPersonFee: 15,
     maxGuests: 4,
     img: PHOTOS.rooms[3],
   },
@@ -73,11 +65,9 @@ export const ROOMS_DATA = [
     capacityDesc: 'Base 3 Guests',
     bed: 'Queen + Extra Beds',
     services: ['Free Breakfast & Airport Shuttle', 'Wifi', 'Television', 'Bathroom'],
-    localBasePrice: 13000,
-    localCouplePrice: 13000,
-    intlBasePrice: 75,
-    intlBaseGuests: 3,
-    intlExtraPersonFee: 15,
+    basePrice: 85,
+    baseGuests: 3,
+    extraPersonFee: 15,
     maxGuests: 6,
     img: PHOTOS.rooms[5],
   },
@@ -89,76 +79,42 @@ export const ROOMS_DATA = [
     capacityDesc: 'Base 3 Guests',
     bed: '3 Twin Beds',
     services: ['Free Breakfast & Airport Shuttle', 'Wifi', 'Television', 'Bathroom'],
-    localBasePrice: 13300,
-    localCouplePrice: 13300,
-    intlBasePrice: 78,
-    intlBaseGuests: 3,
-    intlExtraPersonFee: 15,
+    basePrice: 95,
+    baseGuests: 3,
+    extraPersonFee: 15,
     maxGuests: 6,
     img: PHOTOS.rooms[4],
   },
 ];
 
 /**
- * Calculates room pricing details based on currency mode and number of guests.
+ * Calculates room pricing details in USD based on the number of guests.
  */
-export function calculateRoomPrice(room, isInternational, guestsCount = 1) {
+export function calculateRoomPrice(room, guestsCount = 1) {
   const numGuests = Math.max(1, parseInt(guestsCount, 10) || 1);
+  const baseGuests = room.baseGuests || 1;
+  const basePrice = room.basePrice;
+  const extraGuests = Math.max(0, numGuests - baseGuests);
+  const extraFee = extraGuests * (room.extraPersonFee || 0);
+  const totalPrice = basePrice + extraFee;
 
-  if (!isInternational) {
-    // Local ETB pricing
-    if (room.id === 'standard-single' || room.id === 'deluxe-single') {
-      if (numGuests >= 2) {
-        return {
-          price: room.localCouplePrice,
-          currency: 'ETB',
-          formattedPrice: `${room.localCouplePrice.toLocaleString()} ETB`,
-          breakdownText: 'Couple rate (2 guests)',
-          baseNote: 'Single: ' + room.localBasePrice.toLocaleString() + ' ETB | Couple: ' + room.localCouplePrice.toLocaleString() + ' ETB',
-        };
-      }
-      return {
-        price: room.localBasePrice,
-        currency: 'ETB',
-        formattedPrice: `${room.localBasePrice.toLocaleString()} ETB`,
-        breakdownText: 'Single occupancy (1 guest)',
-        baseNote: 'Single: ' + room.localBasePrice.toLocaleString() + ' ETB | Couple: ' + room.localCouplePrice.toLocaleString() + ' ETB',
-      };
-    }
-
-    return {
-      price: room.localBasePrice,
-      currency: 'ETB',
-      formattedPrice: `${room.localBasePrice.toLocaleString()} ETB`,
-      breakdownText: `Standard direct rate (${room.capacityDesc})`,
-      baseNote: `Rate includes ${room.capacityDesc}`,
-    };
-  } else {
-    // International USD pricing
-    const baseGuests = room.intlBaseGuests;
-    const basePrice = room.intlBasePrice;
-    const extraGuests = Math.max(0, numGuests - baseGuests);
-    const extraFee = extraGuests * room.intlExtraPersonFee;
-    const totalPrice = basePrice + extraFee;
-
-    let breakdownText = `$${basePrice} base rate (${baseGuests} guest${baseGuests > 1 ? 's' : ''})`;
-    if (extraGuests > 0) {
-      breakdownText += ` + $${extraFee} (${extraGuests} extra guest${extraGuests > 1 ? 's' : ''} @ $${room.intlExtraPersonFee})`;
-    }
-
-    let baseNote = `$${basePrice} USD (${baseGuests} person${baseGuests > 1 ? 's' : ''})`;
-    if (room.id === 'standard-single' || room.id === 'deluxe-single') {
-      baseNote = `$${basePrice} USD (1 person) — 2nd person +$15 USD`;
-    } else {
-      baseNote = `$${basePrice} USD (includes ${baseGuests} persons) — +$15 USD/extra guest`;
-    }
-
-    return {
-      price: totalPrice,
-      currency: 'USD',
-      formattedPrice: `$${totalPrice} USD`,
-      breakdownText,
-      baseNote,
-    };
+  let breakdownText = `$${basePrice} base rate (${baseGuests} guest${baseGuests > 1 ? 's' : ''})`;
+  if (extraGuests > 0) {
+    breakdownText += ` + $${extraFee} (${extraGuests} extra guest${extraGuests > 1 ? 's' : ''} @ $${room.extraPersonFee})`;
   }
+
+  let baseNote = `$${basePrice} USD (${baseGuests} person${baseGuests > 1 ? 's' : ''})`;
+  if (room.id === 'standard-single' || room.id === 'deluxe-single') {
+    baseNote = `$${basePrice} USD (1 person) — 2nd person +$15 USD`;
+  } else {
+    baseNote = `$${basePrice} USD (includes ${baseGuests} persons) — +$15 USD/extra guest`;
+  }
+
+  return {
+    price: totalPrice,
+    currency: 'USD',
+    formattedPrice: `$${totalPrice} USD`,
+    breakdownText,
+    baseNote,
+  };
 }

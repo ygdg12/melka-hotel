@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Users, Bed, Globe, MapPin } from 'lucide-react';
+import { ArrowRight, Users, Bed } from 'lucide-react';
 import useReveal from '../hooks/useReveal';
 import { ROOM_IMAGES } from '../utils/images';
 import { ROOMS_DATA, calculateRoomPrice } from '../data/roomsData';
@@ -13,9 +13,6 @@ function RevealSection({ children, className = '' }) {
 }
 
 const RoomsPage = () => {
-  const [guestType, setGuestType] = useState('local'); // 'local' | 'international'
-  const isInternational = guestType === 'international';
-
   return (
     <main>
       <div className="page-hero">
@@ -34,40 +31,11 @@ const RoomsPage = () => {
             Pick any of our hotel rooms to experience the delightful decor, complemented with modern amenities for a comfortable stay.
           </p>
 
-          {/* Elegant Guest Category / Rate Switcher */}
-          <div className="rate-switcher-wrapper">
-            <div className="rate-switcher">
-              <button
-                type="button"
-                className={`rate-switcher-btn ${!isInternational ? 'active' : ''}`}
-                onClick={() => setGuestType('local')}
-              >
-                <MapPin size={14} /> Local Guest
-                <span className="rate-switcher-badge">ETB</span>
-              </button>
-              <button
-                type="button"
-                className={`rate-switcher-btn ${isInternational ? 'active' : ''}`}
-                onClick={() => setGuestType('international')}
-              >
-                <Globe size={14} /> International Guest
-                <span className="rate-switcher-badge">USD</span>
-              </button>
-            </div>
-
-            <div className="rate-info-banner">
-              {!isInternational ? (
-                <span>🇪🇹 <strong>Local Direct Booking Rates (in Birr):</strong> Special rates for domestic guests &amp; residents. Includes free breakfast.</span>
-              ) : (
-                <span>🌐 <strong>International Booking Rates (in USD):</strong> Rates for international travellers. Standard/Deluxe single includes 1 guest (+$15 USD for 2nd guest). Double/Twin includes 2 guests. Family/Triple includes 3 guests.</span>
-              )}
-            </div>
-          </div>
         </RevealSection>
 
         <div className="rooms-page-grid" style={{ marginTop: 48 }}>
           {ROOMS_DATA.map((room, i) => {
-            const pricing = calculateRoomPrice(room, isInternational, 1);
+            const pricing = calculateRoomPrice(room, 1);
             return (
               <RevealSection key={room.id} className={`reveal-delay-${(i % 2) + 1}`}>
                 <div className="room-detail-card">
@@ -104,7 +72,7 @@ const RoomsPage = () => {
                         </div>
                       </div>
                       <Link 
-                        to={`/reserve?room=${room.id}&guestType=${guestType}`} 
+                        to={`/reserve?room=${room.id}`} 
                         className="btn-primary" 
                         style={{ padding: '12px 24px', flexShrink: 0 }}
                       >
